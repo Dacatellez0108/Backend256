@@ -24,7 +24,7 @@ exports.buscarEmpleados = async (req, res) => {
 
         const empleados = await Empleados.find();
         res.json(empleados)
-        console.log(Empleados);
+        console.log(empleados);
 
     } catch (error) {
         console.log(error);
@@ -35,11 +35,11 @@ exports.buscarEmpleados = async (req, res) => {
 
 exports.mostrarEmpleados = async (req, res) => {
     try {
-        let Empleados = await Empleados.findById(req.params.id);
-        if (!Empleados) {
+        let empleados = await Empleados.findById(req.params.id);
+        if (!empleados) {
             res.status(404).send({ msg: "Cliente no encontrado con ese id" });
         }else{
-            res.json(Empleados);
+            res.json(empleados);
         }
     
 
@@ -52,13 +52,13 @@ exports.mostrarEmpleados = async (req, res) => {
 
     exports.actualizarEmpleados = async (req, res) => {
         try {
-            const Empleados = await Empleados.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true });
+            const empleados = await Empleados.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true });
 
 
-            if (!Empleados) {
+            if (!empleados) {
                 res.status(404).send({ msg: "cliente no encontrado con ese id" });
             } else {
-                res.json(Empleados);
+                res.json(empleados);
 
             }
         } catch (error) {
@@ -74,7 +74,7 @@ exports.mostrarEmpleados = async (req, res) => {
             if (!empleados) {
                 res.status(404).json({ msg: "cliente no encontrado con ese id" })
             } else {
-                await empleados.findOneAndDelete({ _id: req.params.id });
+                await Empleados.findOneAndDelete({ _id: req.params.id });
                 res.json({ msg: "El cliente ha  sido eliminado" });
             }
 
