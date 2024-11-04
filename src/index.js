@@ -16,8 +16,15 @@ app.use(express.json());
 // ruta para consumir la api cliente
 app.use('/api/clientes', require('../routes/rutasCliente'));
 
-// ruta para consumir la api cliente
+// ruta para consumir la api productos
 app.use('/api/productos', require('../routes/rutasProductos'));
+
+// ruta para consumir la api empleados
+app.use('/api/empleados', require('../routes/rutasEmpleados'));
+
+// ruta para consumir la api Proveedores
+app.use('/api/proveedores', require('../routes/rutasProveedores'));
+
 
 
 

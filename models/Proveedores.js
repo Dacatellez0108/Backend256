@@ -7,7 +7,7 @@ const ProveedoresSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    apellidos:{
+    ciudad:{
         type: String,
         required: true
     },
